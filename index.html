@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="_main-container">
+      <section class="_center _comumn">
+        <p class="timer-result _center js-timer-result">60</p>
+        <div class="start-btn js-start-btn _center">start</div>
+      </section>
+      <div class="separator"></div>
+      <section class="_center _comumn">
+        <p>type smth, but length has to be 2-5 characters</p>
+        <input
+          oninput="checkValidation(this)"
+          type="text"
+          class="text js-text"
+        />
+      </section>
+      <div class="separator"></div>
+      <section>
+        <div>
+          <ul class="horizontal-menu js-horizontal-menu">
+            <li class="menu-item _center"><a href="#"></a>list</li>
+            <li class="menu-item _center"><a href="#"></a>list</li>
+            <li class="menu-item _center"><a href="#"></a>list</li>
+            <li class="menu-item _center"><a href="#"></a>list</li>
+            <li class="menu-item _center"><a href="#"></a>list</li>
+          </ul>
+        </div>
+        <div class="sidebar-container">
+          <div class="sidebar js-sidebar fade">
+            <ul class="_center _comumn">
+              <li class="menu-item _center"><a href="#"></a>list</li>
+              <li class="menu-item _center"><a href="#"></a>list</li>
+              <li class="menu-item _center"><a href="#"></a>list</li>
+              <li class="menu-item _center"><a href="#"></a>list</li>
+              <li class="menu-item _center"><a href="#"></a>list</li>
+            </ul>
+          </div>
+          <div
+            class="sidebar-icon js-sidebar-icon fade _center _comumn _hidden"
+          >
+            <div class="three-lines"></div>
+            <div class="three-lines"></div>
+            <div class="three-lines"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script defer src="./JS/main.js"></script>
+  </body>
+</html>
