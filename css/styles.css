@@ -65,7 +65,9 @@ ul li {
   list-style: none;
 }
 img {
-  vertical-align: top;
+  /* vertical-align: top; */
+  max-width: 100%;
+  height: auto;
 }
 
 h1,
@@ -101,9 +103,9 @@ ol {
   max-width: 1200px;
   font-size: 1rem;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* font-family: "Roboto", sans-serif; */
-  /* padding-top: 50px; */
+  padding-top: 50px;
 }
 ._center {
   display: flex;
@@ -124,7 +126,62 @@ ol {
 .section-title {
   font-size: 25px;
 }
+/* audio-player */
+.audio-player {
+}
+.player-part {
+  border: 1px solid green;
+  width: 10rem;
+  height: 5rem;
+}
+.poster {
+  width: 150px;
+  height: 150px;
+}
 
+.title {
+  width: max-content;
+  height: 3rem;
+}
+.author {
+  width: max-content;
+  height: 2rem;
+}
+.playback {
+  height: 2rem;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.previous {
+  width: 2rem;
+  height: 2rem;
+}
+.play-pause {
+  width: 3rem;
+  height: 3rem;
+}
+.next {
+  width: 2rem;
+  height: 2rem;
+}
+/* =====playlist======= */
+.playlist {
+  border: 1px solid rebeccapurple;
+  width: 20rem;
+  min-height: 2rem;
+}
+.playlist-item {
+  width: 100%;
+  border: 1px solid red;
+  margin: 0.5rem 0rem;
+}
+.playing-track {
+  background-color: rgb(27, 201, 143); /* still not in use*/
+}
+/* ===================== */
 ._hidden {
   display: none;
 }
