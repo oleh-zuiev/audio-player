@@ -25,10 +25,14 @@ const data = [
 // =========================
 const player = new Audio();
 function play() {
+    playPauseEl.classList.remove('fa-play','fa');
+    playPauseEl.classList.add('fa-pause','fa');
     player.play();
 }
 function pause() {
     player.pause();
+    playPauseEl.classList.remove('fa-pause','fa');
+    playPauseEl.classList.add('fa-play','fa');
 }
 let trackIdValue = 0;
 let currentTrack;
@@ -108,23 +112,26 @@ playPauseEl.addEventListener('click', function () {
     }
 });
 prevEl.addEventListener('click', function () {
-    if (trackIdValue > 0) {
         trackIdValue -= 1;
         player.src = data[trackIdValue].url;
         posterEl.innerHTML = `<img src =${data[trackIdValue].poster}>`;
         titleEl.innerHTML = `${data[trackIdValue].title}`;
         authorEl.innerHTML = `${data[trackIdValue].author}`;
+    
+    if (trackIdValue < 0) {
+        trackIdValue = data.length - 1;
     }
-    play();
+        play();
 });
 nextEl.addEventListener('click', function () {
-    if (trackIdValue < data.length) {
         trackIdValue += 1;
         player.src = data[trackIdValue].url;
         posterEl.innerHTML = `<img src =${data[trackIdValue].poster}>`;
         titleEl.innerHTML = `${data[trackIdValue].title}`;
         authorEl.innerHTML = `${data[trackIdValue].author}`;
         play();
+    if (trackIdValue >= data.length - 1) {
+        trackIdValue = 0;
     }
 });
 // console.log(player.paused);

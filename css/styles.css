@@ -126,11 +126,15 @@ ol {
 .section-title {
   font-size: 25px;
 }
+.background {
+  background-color: grey;
+  height: 100vh;
+}
 /* audio-player */
 .audio-player {
 }
 .player-part {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 10rem;
   height: 5rem;
 }
@@ -141,6 +145,7 @@ ol {
 
 .title {
   width: max-content;
+  margin-top: 3rem;
   height: 3rem;
 }
 .author {
@@ -184,4 +189,11 @@ ol {
 /* ===================== */
 ._hidden {
   display: none;
+}
+/* =========Font Awesome icons====== */
+.fa-forward,
+.fa-backward,
+.fa-play,
+.fa-pause {
+  color: whitesmoke;
 }

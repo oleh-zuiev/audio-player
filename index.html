@@ -4,14 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>audio-player</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div class="_main-container _center _comumn">
-      <!-- <button onclick="play()">Play</button> -->
-      <!-- DO not use <audio>! Use html element controls -->
-      <!-- <div class="container-audio"> 
+    <div class="background">
+      <div class="_main-container _center _comumn">
+        <!-- <button onclick="play()">Play</button> -->
+        <!-- DO not use <audio>! Use html element controls -->
+        <!-- <div class="container-audio"> 
         <audio controls loop autoplay>
           <source
             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/new_year_dubstep_minimix.ogg"
@@ -20,22 +28,29 @@
           
         </audio>
       </div> -->
-      <div class="audio-player _center _comumn">
-        <div class="poster player-part">
-          <!-- <img src="./images/album.jpg" alt="img" /> -->
+        <div class="audio-player _center _comumn">
+          <div class="poster player-part">
+            <img src="./images/album.jpg" alt="img" />
+          </div>
+          <p class="title player-part">song</p>
+          <p class="author player-part">author</p>
+          <div class="playback player-part"></div>
+          <div class="controls player-part">
+            <div class="previous player-part _center js-prev">
+              <i class="fas fa-backward"></i>
+            </div>
+            <div
+              class="play-pause player-part _center js-playPause fa fa-play"
+            ></div>
+            <div class="next player-part _center js-next">
+              <i class="fas fa-forward"></i>
+            </div>
+          </div>
         </div>
-        <p class="title player-part">Lorem, ipsum dolor.</p>
-        <p class="author player-part">Lorem, ipsum.</p>
-        <div class="playback player-part"></div>
-        <div class="controls player-part">
-          <div class="previous player-part _center js-prev">prev.</div>
-          <div class="play-pause player-part _center js-playPause">play</div>
-          <div class="next player-part _center js-next">next</div>
+        <div class="playlist _center _comumn">
+          <p>Playlist</p>
+          <!-- <p data-trackid="0" class="track-item"><span></span><span></span></p> -->
         </div>
-      </div>
-      <div class="playlist _center _comumn">
-        <p>Playlist</p>
-        <!-- <p data-trackid="0" class="track-item"><span></span><span></span></p> -->
       </div>
     </div>
     <script defer src="./JS/main.js"></script>
