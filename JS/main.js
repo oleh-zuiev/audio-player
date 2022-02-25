@@ -134,6 +134,13 @@ nextEl.addEventListener('click', function () {
         trackIdValue = 0;
     }
 });
+// ==============Volume=====================
+let volumeRef = document.querySelector('#volume-range');
+volumeRef.addEventListener('change', function (e) {
+player.volume = e.target.value/100;
+    // console.log(e.target.value/100);
+});
+
 // console.log(player.paused);
 // console.log(data.length);
 // if (!player.paused) {
