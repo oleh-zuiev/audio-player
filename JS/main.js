@@ -23,8 +23,10 @@ const data = [
 
 ];
 // =========================
+let trackIdValue = 0;
 const player = new Audio();
 function play() {
+    player.src = data[trackIdValue].url;
     playPauseEl.classList.remove('fa-play','fa');
     playPauseEl.classList.add('fa-pause','fa');
     player.play();
@@ -34,9 +36,10 @@ function pause() {
     playPauseEl.classList.remove('fa-pause','fa');
     playPauseEl.classList.add('fa-play','fa');
 }
-let trackIdValue = 0;
+// trackIdValue.addEventListener('change', function (e) {
+//     console.log('some changes');
+// });
 let currentTrack;
-player.src = data[trackIdValue].url;
 
 // ==============controls===========
 const prevEl = document.querySelector('.js-prev');
@@ -66,7 +69,7 @@ function generatePlaylist() {
             authorEl.innerHTML = `${data[trackIdValue].author}`;
 
             // data[trackIdValue] = true;
-            console.log(trackIdValue);
+            // console.log(trackIdValue);
             play();
             // console.log('eig');
             // if (player.paused) {
@@ -129,18 +132,40 @@ nextEl.addEventListener('click', function () {
         posterEl.innerHTML = `<img src =${data[trackIdValue].poster}>`;
         titleEl.innerHTML = `${data[trackIdValue].title}`;
         authorEl.innerHTML = `${data[trackIdValue].author}`;
-        play();
     if (trackIdValue >= data.length - 1) {
         trackIdValue = 0;
+        console.log('df ');
     }
+        play();
+
 });
 // ==============Volume=====================
-let volumeRef = document.querySelector('#volume-range');
+let volumeRef = document.querySelector('#range');
 volumeRef.addEventListener('change', function (e) {
 player.volume = e.target.value/100;
     // console.log(e.target.value/100);
 });
+// ---------------
+// const rangeInputs = document.querySelector('input[type="range"]');
+// const numberInput = document.querySelector('input[type="number"]')
 
+// function handleInputChange(e) {
+//   let target = e.target
+// //   if (e.target.type !== 'range') {
+// //     target = document.getElementById('range')
+// //   }
+//   const min = target.min
+//   const max = target.max
+//   const val = target.value
+  
+//   target.style.backgroundSize = (val - min) * 100 / (max - min) + '100%'
+// }
+
+// rangeInputs.forEach(input => {
+//     input.addEventListener('input', handleInputChange);
+// })
+
+// numberInput.addEventListener('input', handleInputChange)
 // console.log(player.paused);
 // console.log(data.length);
 // if (!player.paused) {
@@ -148,3 +173,4 @@ player.volume = e.target.value/100;
 //     console.log('eig');
 // }
 // console.dir(player);
+// =========================CURRENT TIME==========
