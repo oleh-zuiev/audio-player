@@ -135,7 +135,7 @@ nextEl.addEventListener('click', function () {
         play();
 
 });
-// ==============Volume=====================
+// ==============Volume====================
 let volumeRef = document.querySelector('#volume');
 volumeRef.addEventListener('change', function (e) {
 player.volume = e.target.value/100;
