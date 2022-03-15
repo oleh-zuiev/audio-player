@@ -23,10 +23,11 @@ const data = [
 
 ];
 // =========================
+let currentTrack;
 let trackIdValue = 0;
 const player = new Audio();
 function play() {
-    player.src = data[trackIdValue].url;
+    // player.src = data[trackIdValue].url;
     playPauseEl.classList.remove('fa-play','fa');
     playPauseEl.classList.add('fa-pause','fa');
     player.play();
@@ -36,10 +37,23 @@ function pause() {
     playPauseEl.classList.remove('fa-pause','fa');
     playPauseEl.classList.add('fa-play','fa');
 }
-// trackIdValue.addEventListener('change', function (e) {
-//     console.log('some changes');
-// });
-let currentTrack;
+function chooseTrack() {
+        player.src = data[trackIdValue].url;
+        posterEl.innerHTML = `<img src =${data[trackIdValue].poster}>`;
+        titleEl.innerHTML = `${data[trackIdValue].title}`;
+        authorEl.innerHTML = `${data[trackIdValue].author}`;
+        // -----------------------------------------------------------------
+        let alltracksArr = document.querySelectorAll('.playlist-item');
+        for (const item of alltracksArr) {
+        if (item.classList.contains('playing-track')) {
+        item.classList.remove('playing-track');
+        }
+        // -----------------------------------------------------------------
+        currentTrack = document.querySelector(`p[data-trackid='${trackIdValue}']`);
+        currentTrack.classList.add('playing-track');   
+}    
+    console.log(currentTrack.textContent);
+}
 
 // ==============controls===========
 const prevEl = document.querySelector('.js-prev');
@@ -63,30 +77,16 @@ function generatePlaylist() {
         // --------
         newTrack.addEventListener('click', function (e) {
             trackIdValue = e.target.getAttribute('data-trackid');
-            player.src = data[trackIdValue].url;
-            posterEl.innerHTML = `<img src =${data[trackIdValue].poster}>`;
-            titleEl.innerHTML = `${data[trackIdValue].title}`;
-            authorEl.innerHTML = `${data[trackIdValue].author}`;
-
-            // data[trackIdValue] = true;
-            // console.log(trackIdValue);
+            chooseTrack();
             play();
-            // console.log('eig');
-            // if (player.paused) {
-            // console.log(player.currentSrc);
-            // }
         });
     }
 }
 generatePlaylist();
+chooseTrack();//if you want to have empty player in the beginning move this function somewhere else
 // -----------
-// const playListTrackItem = document.querySelector('.playlist-item');
-// if (playListTrackItem.hasAttribute('data-trackid',trackIdValue)) {
-//     console.log(playListTrackItem);
-// }
 playlistEl.addEventListener('click', function (e) {
-    // let checkAttribute = e.target.getAttribute('data-trackid');
-    const playTracksArr = document.querySelectorAll('.playlist-item');
+    let playTracksArr = document.querySelectorAll('.playlist-item');
 for (const item of playTracksArr) {
     if (item !== e.target) {
         item.classList.remove('playing-track');
@@ -95,17 +95,6 @@ for (const item of playTracksArr) {
    }
 }
 });
-// ----------тест с удалением класса
-// const playTracksArr = document.querySelectorAll('.playlist-item');
-// for (const item of playTracksArr) {
-//     item.addEventListener('click', function (e) {
-//         if (item.classList.contains('playing-track')) {
-//             item.classList.remove('playing-track');
-//         } else {
-//             e.target.classList.add('playing-track');
-//         }
-//     });
-// }
 // =================
 playPauseEl.addEventListener('click', function () {
     if (player.paused) {
@@ -115,62 +104,46 @@ playPauseEl.addEventListener('click', function () {
     }
 });
 prevEl.addEventListener('click', function () {
-        trackIdValue -= 1;
-        player.src = data[trackIdValue].url;
-        posterEl.innerHTML = `<img src =${data[trackIdValue].poster}>`;
-        titleEl.innerHTML = `${data[trackIdValue].title}`;
-        authorEl.innerHTML = `${data[trackIdValue].author}`;
-    
-    if (trackIdValue < 0) {
-        trackIdValue = data.length - 1;
+    if (typeof (trackIdValue) === typeof ('')) {
+        trackIdValue = Number(trackIdValue);
     }
+    console.log(trackIdValue);
+    console.log(typeof(trackIdValue));
+    if (trackIdValue <= 0) {
+        trackIdValue = data.length-1;
+    } else {
+      trackIdValue -= 1;  
+    }
+    
+    console.log(trackIdValue);
+        chooseTrack(); 
         play();
 });
 nextEl.addEventListener('click', function () {
-        trackIdValue += 1;
-        player.src = data[trackIdValue].url;
-        posterEl.innerHTML = `<img src =${data[trackIdValue].poster}>`;
-        titleEl.innerHTML = `${data[trackIdValue].title}`;
-        authorEl.innerHTML = `${data[trackIdValue].author}`;
+    if (typeof (trackIdValue) === typeof ('')) {
+        trackIdValue = Number(trackIdValue);
+    }
+    console.log(trackIdValue);
+    console.log(typeof(trackIdValue));
     if (trackIdValue >= data.length - 1) {
         trackIdValue = 0;
-        console.log('df ');
+    } else {
+        trackIdValue += 1;
     }
+    console.log(trackIdValue);
+        chooseTrack();
         play();
 
 });
 // ==============Volume=====================
-let volumeRef = document.querySelector('#range');
+let volumeRef = document.querySelector('#volume');
 volumeRef.addEventListener('change', function (e) {
 player.volume = e.target.value/100;
-    // console.log(e.target.value/100);
 });
-// ---------------
-// const rangeInputs = document.querySelector('input[type="range"]');
-// const numberInput = document.querySelector('input[type="number"]')
-
-// function handleInputChange(e) {
-//   let target = e.target
-// //   if (e.target.type !== 'range') {
-// //     target = document.getElementById('range')
-// //   }
-//   const min = target.min
-//   const max = target.max
-//   const val = target.value
-  
-//   target.style.backgroundSize = (val - min) * 100 / (max - min) + '100%'
-// }
-
-// rangeInputs.forEach(input => {
-//     input.addEventListener('input', handleInputChange);
-// })
-
-// numberInput.addEventListener('input', handleInputChange)
-// console.log(player.paused);
-// console.log(data.length);
-// if (!player.paused) {
-//     console.log(player.currentSrc);
-//     console.log('eig');
-// }
-// console.dir(player);
-// =========================CURRENT TIME==========
+// ===============Playback===================
+const playbackEl = document.querySelector('#playback');
+console.log(playbackEl.value);
+playbackEl.addEventListener('change', function () {
+    player.currentTime = playbackEl.value;
+    console.log(player.currentTime);
+});
