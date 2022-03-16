@@ -95,7 +95,7 @@ for (const item of playTracksArr) {
    }
 }
 });
-// =================
+// =====================controls=====================
 playPauseEl.addEventListener('click', function () {
     if (player.paused) {
         play();
@@ -143,7 +143,20 @@ player.volume = e.target.value/100;
 // ===============Playback===================
 const playbackEl = document.querySelector('#playback');
 console.log(playbackEl.value);
-playbackEl.addEventListener('change', function () {
-    player.currentTime = playbackEl.value;
+
+player.addEventListener('timeupdate', function () {
     console.log(player.currentTime);
+    playbackEl.value = player.currentTime;
 });
+playbackEl.addEventListener('input', function () {
+    pause();
+    if (player.paused) {
+    player.currentTime = playbackEl.value;        
+    }
+    play();
+});
+// playbackEl.addEventListener('change', function () {
+//     player.currentTime = playbackEl.value;
+//     console.log(player.currentTime);
+// });
+// ==============switch to next track===============
