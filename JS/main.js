@@ -160,3 +160,16 @@ playbackEl.addEventListener('input', function () {
 //     console.log(player.currentTime);
 // });
 // ==============switch to next track===============
+player.addEventListener('ended', function () {
+     if (typeof (trackIdValue) === typeof ('')) {
+        trackIdValue = Number(trackIdValue);
+    }
+    if (trackIdValue >= data.length - 1) {
+        trackIdValue = 0;
+    } else {
+        trackIdValue += 1;
+    }
+        chooseTrack();
+        play();
+    
+});

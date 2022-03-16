@@ -68,6 +68,7 @@ img {
   /* vertical-align: top; */
   max-width: 100%;
   height: auto;
+  border-radius: 10%;
 }
 
 h1,
@@ -97,6 +98,8 @@ ul,
 ol {
   list-style: none;
 }
+/* ================= */
+
 /* technical classes */
 ._main-container {
   margin: auto;
@@ -127,12 +130,15 @@ ol {
   font-size: 25px;
 }
 .background {
-  background-color: grey;
+  background-image: url("/images/dylan-mcleod-VRdZBLqnoMU-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  /* background-color: grey; */
   height: 100vh;
 }
 /* audio-player */
-.audio-player {
-}
+/* .audio-player {
+} */
 .player-part {
   /* border: 1px solid green; */
   width: 10rem;
@@ -144,11 +150,13 @@ ol {
 }
 
 .title {
+  color: whitesmoke;
   width: max-content;
   margin-top: 3rem;
   height: 3rem;
 }
 .author {
+  color: whitesmoke;
   width: max-content;
   height: 2rem;
 }
@@ -174,17 +182,20 @@ ol {
 }
 /* =====playlist======= */
 .playlist {
-  border: 1px solid rebeccapurple;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
   width: 20rem;
   min-height: 2rem;
 }
 .playlist-item {
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 0.5rem 0rem;
 }
 .playing-track {
-  background-color: rgb(27, 201, 143);
+  color: black;
+  background-color: whitesmoke;
 }
 /* ===================== */
 ._hidden {
@@ -194,11 +205,15 @@ ol {
 .fa-forward,
 .fa-backward,
 .fa-play,
-.fa-pause {
+.fa-pause,
+.fa-volume-up {
   color: whitesmoke;
 }
 
 /* ==========volume================ */
+.volume-slider {
+  margin-top: 25px;
+}
 #volume {
   -webkit-appearance: none;
   margin-left: 5px;
