@@ -4,21 +4,18 @@ const data = [
         title: 'Thriller',
         author: 'Michael Jackson',
         poster: './images/album.jpg',
-        // active:false,
     },
     {
         url: './songs/2.mp3',
         title: 'They dont care about us',
         author: 'Michael Jackson',
         poster: './images/album.jpg',
-        // active:false,
     },
     {
         url: './songs/3.mp3',
         title: 'Helios',
         author: 'Latexfauna',
         poster: './images/helios.jpg',
-        // active:false,
     },
 
 ];
