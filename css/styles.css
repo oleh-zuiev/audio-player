@@ -187,6 +187,7 @@ ol {
   border-radius: 5px;
   width: 20rem;
   min-height: 2rem;
+  background-color: rgb(143, 188, 143, 0.1);
 }
 .playlist-item {
   width: 100%;

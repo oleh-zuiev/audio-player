@@ -1,27 +1,53 @@
 const data = [
-    {
-        url: './songs/1.mp3',
-        title: 'Thriller',
-        author: 'Michael Jackson',
-        poster: './images/album.jpg',
-    },
-    {
-        url: './songs/2.mp3',
-        title: 'They dont care about us',
-        author: 'Michael Jackson',
-        poster: './images/album.jpg',
-    },
+    // {
+    //     url: './songs/1.mp3',
+    //     title: 'Thriller',
+    //     author: 'Michael Jackson',
+    //     poster: './images/album.jpg',
+    // },
+    // {
+    //     url: './songs/2.mp3',
+    //     title: 'They dont care about us',
+    //     author: 'Michael Jackson',
+    //     poster: './images/album.jpg',
+    // },
     {
         url: './songs/3.mp3',
         title: 'Helios',
         author: 'Latexfauna',
         poster: './images/helios.jpg',
     },
+     {
+        url: './songs/4.mp3',
+        title: 'Aloe',
+        author: 'Latexfauna',
+        poster: './images/aloe.jpg',
+    },
+    {
+        url: './songs/5.mp3',
+        title: 'Kungfu',
+        author: 'Latexfauna',
+        poster: './images/kungfu.jpg',
+    },
+    {
+        url: './songs/6.mp3',
+        title: 'Odyssey',
+        author: 'Latexfauna',
+        poster: './images/odyssey.jpg',
+    },
+     {
+        url: './songs/7.mp3',
+        title: 'Bounty',
+        author: 'Latexfauna',
+        poster: './images/bounty.jpg',
+    },
 
 ];
 // =========================
 let currentTrack;
 let trackIdValue = 0;
+let duration;
+// let currentTime;
 const player = new Audio();
 function play() {
     // player.src = data[trackIdValue].url;
@@ -47,9 +73,9 @@ function chooseTrack() {
         }
         // -----------------------------------------------------------------
         currentTrack = document.querySelector(`p[data-trackid='${trackIdValue}']`);
-        currentTrack.classList.add('playing-track');   
+        currentTrack.classList.add('playing-track');  
+            
 }    
-    console.log(currentTrack.textContent);
 }
 
 // ==============controls===========
@@ -104,15 +130,13 @@ prevEl.addEventListener('click', function () {
     if (typeof (trackIdValue) === typeof ('')) {
         trackIdValue = Number(trackIdValue);
     }
-    console.log(trackIdValue);
-    console.log(typeof(trackIdValue));
+    
     if (trackIdValue <= 0) {
         trackIdValue = data.length-1;
     } else {
       trackIdValue -= 1;  
     }
     
-    console.log(trackIdValue);
         chooseTrack(); 
         play();
 });
@@ -120,14 +144,12 @@ nextEl.addEventListener('click', function () {
     if (typeof (trackIdValue) === typeof ('')) {
         trackIdValue = Number(trackIdValue);
     }
-    console.log(trackIdValue);
-    console.log(typeof(trackIdValue));
+    
     if (trackIdValue >= data.length - 1) {
         trackIdValue = 0;
     } else {
         trackIdValue += 1;
     }
-    console.log(trackIdValue);
         chooseTrack();
         play();
 
@@ -138,23 +160,27 @@ volumeRef.addEventListener('change', function (e) {
 player.volume = e.target.value/100;
 });
 // ===============Playback===================
+// -----get duration of track-------
+player.addEventListener('durationchange', function () {
+    duration = player.duration;
+});
+
+// ----------------------------------
 const playbackEl = document.querySelector('#playback');
-console.log(playbackEl.value);
 
 player.addEventListener('timeupdate', function () {
-    console.log(player.currentTime);
-    playbackEl.value = player.currentTime;
+    playbackEl.value = player.currentTime * 100 / duration;
 });
 playbackEl.addEventListener('input', function () {
     pause();
     if (player.paused) {
-    player.currentTime = playbackEl.value;        
+    player.currentTime = playbackEl.value*duration/100;
     }
     play();
 });
+
 // playbackEl.addEventListener('change', function () {
 //     player.currentTime = playbackEl.value;
-//     console.log(player.currentTime);
 // });
 // ==============switch to next track===============
 player.addEventListener('ended', function () {
