@@ -108,6 +108,7 @@ ol {
   position: relative;
   /* overflow: hidden; */
   /* font-family: "Roboto", sans-serif; */
+  height: 100%;
   padding-top: 50px;
 }
 ._center {
@@ -129,12 +130,18 @@ ol {
 .section-title {
   font-size: 25px;
 }
-.background {
+/* .background {
+  background-image: url("../images/dylan-mcleod-VRdZBLqnoMU-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+} */
+html {
   background-image: url("../images/dylan-mcleod-VRdZBLqnoMU-unsplash.jpg");
   background-size: cover;
   background-position: center;
   /* background-color: grey; */
-  height: 100vh;
+  height: 100%;
 }
 /* audio-player */
 /* .audio-player {
