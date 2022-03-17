@@ -141,7 +141,7 @@ ol {
 } */
 .player-part {
   /* border: 1px solid green; */
-  width: 10rem;
+  /* width: 10rem; */
   height: 5rem;
 }
 .poster {
@@ -243,7 +243,7 @@ ol {
 #playback {
   -webkit-appearance: none;
   /* margin-left: 5px; */
-  width: 200px;
+  width: 300px;
   height: 10px;
   background: whitesmoke;
   border-radius: 5px;
