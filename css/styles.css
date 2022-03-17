@@ -130,7 +130,7 @@ ol {
   font-size: 25px;
 }
 .background {
-  background-image: url("/images/dylan-mcleod-VRdZBLqnoMU-unsplash.jpg");
+  background-image: url("../images/dylan-mcleod-VRdZBLqnoMU-unsplash.jpg");
   background-size: cover;
   background-position: center;
   /* background-color: grey; */
