@@ -5,12 +5,12 @@ const data = [
     //     author: 'Michael Jackson',
     //     poster: './images/album.jpg',
     // },
-    // {
-    //     url: './songs/2.mp3',
-    //     title: 'They dont care about us',
-    //     author: 'Michael Jackson',
-    //     poster: './images/album.jpg',
-    // },
+    {
+        url: './songs/2.mp3',
+        title: 'They don\'t care about us',
+        author: 'Michael Jackson',
+        poster: './images/album.jpg',
+    },
     {
         url: './songs/3.mp3',
         title: 'Helios',
